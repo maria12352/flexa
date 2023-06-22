@@ -37,6 +37,12 @@ function setup() {
   
    score = 0  
   redB= new Group();
+  pinkB = new Group() 
+  greenB = new Group()
+  blueB  = new Group()
+  
+  
+  
   //Crie um grupo para greenBalloon (balão verde)
  //Crie um grupo para blueBalloon (balão azul)
  //Crie um grupo para pinkBalloon (balão rosa)
@@ -101,20 +107,20 @@ function draw() {
 //Use função destroyEach() para destruir o grupo greenBalloon (balão verde)
 //Use função destroyEach() para destruir arrowGroup (grupo de flecha).
 //Aumente a pontuação em 3.
-
+if (arrowGroup.isTouching(greenB)) { greenB.destroyEach(); arrowGroup.destroyEach(); score=score+70; }
 
 
 //Crie a função isTouching() 
 //Use função destroyEach() para destruir o grupo blueBalloon (balão azul)
 //Use função destroyEach() para destruir arrowGroup.
 //Aumente a pontuação em 2.
-
+if (arrowGroup.isTouching(blueB)) { blueB.destroyEach(); arrowGroup.destroyEach(); score=score+30; }
 
 //Crie a função isTouching()
 //Use função destroyEach() para destruir o grupo pinkBalloon (balão rosa)
 //Use função destroyEach() para destruir arrowGroup.
 //Aumente a pontuação em 1.
-
+if (arrowGroup.isTouching(pinkB)) { pinkB.destroyEach(); arrowGroup.destroyEach(); score=score+1; }
  }
   
   drawSprites();
@@ -137,7 +143,7 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
- //Adicione o grupo
+ blueB.add(blue) //Adicione o grupo
 }
 
 function greenBalloon() {
@@ -146,7 +152,7 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
-  //Adicione o grupo
+ greenB.add(green) //Adicione o grupo
 }
 
 function pinkBalloon() {
@@ -155,7 +161,7 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
- //Adicione o grupo
+ pinkB.add(pink)  //Adicione o grupo
 }
 
 
